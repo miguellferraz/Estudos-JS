@@ -22,6 +22,7 @@
     <script>
       const subButton = document.querySelector(".subscribeButton");
       const calcButton = document.querySelector(".calculateButton");
+      const inputElement = document.querySelector('.inputOrder');
 
       subButton.onclick = function () {
         if (subButton.innerText === "Subscribe") {
@@ -31,18 +32,25 @@
         }
       };
 
-      calcButton.onclick = function() {
-        const inputElement = document.querySelector('.inputOrder');
-        const cost = inputElement.value;
+      function calculateTotal() {
+        const resultElement = document.querySelector('.shippingCost');
+        let cost = Number(inputElement.value);
 
         if (cost <= 40) {
-          const result = Number(cost) + 10;
-          document.querySelector('.shippingCost').innerText = `$${result}`
+          cost += 10;
+          resultElement.innerText = `$${cost}`;
         } else {
-          document.querySelector('.shippingCost').innerText = `$${cost} - FREE Shipping!`
+          resultElement.innerText = `$${cost} - FREE Shipping!`;
         }
       }
 
+      calcButton.onclick = calculateTotal;
+
+      inputElement.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      });
     </script>
   </body>
 </html>
