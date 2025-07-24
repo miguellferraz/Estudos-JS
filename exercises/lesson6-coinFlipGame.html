@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Flip Game</title>
+  </head>
+  <body>
+    <!-- 6f to 6j -->
+
+    <button
+      onclick="
+        let number = Math.random();
+        let result = number <= 1 / 2 ? console.log('Heads - You Win!') : number >= console.log('Tails - You lose.');
+    "
+    >
+      Heads
+    </button>
+
+    <button
+      onclick="
+        let number = Math.random();
+        let result = number <= 1 / 2 ? console.log('Heads - You lose.') : number >= console.log('Tails - You win!');
+    "
+    >
+      Tails
+    </button>
+  </body>
+</html>

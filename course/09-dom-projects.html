@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Projects | Lesson 9</title>
+  </head>
+  <body>
+    <p>Youtube Subscribe Button</p>
+    <button class="subscribeButton">Subscribe</button>
+
+    <p>Rock Paper Scissors Game</p>
+    <a href="09-rock-paper-scissors.html" target="_blank">Click here</a>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping</p>
+    <p>Orders over $40 = FREE shipping</p>
+    <input placeholder="Cost of Order" class="inputOrder">
+    <button class="calculateButton">Calculate</button>
+    <p class="shippingCost"></p>
+
+    <script>
+      const subButton = document.querySelector(".subscribeButton");
+      const calcButton = document.querySelector(".calculateButton");
+
+      subButton.onclick = function () {
+        if (subButton.innerText === "Subscribe") {
+          subButton.innerText = "Subscribed";
+        } else {
+          subButton.innerText = "Subscribe";
+        }
+      };
+
+      calcButton.onclick = function() {
+        const inputElement = document.querySelector('.inputOrder');
+        const cost = inputElement.value;
+
+        if (cost <= 40) {
+          const result = Number(cost) + 10;
+          document.querySelector('.shippingCost').innerText = `$${result}`
+        } else {
+          document.querySelector('.shippingCost').innerText = `$${cost} - FREE Shipping!`
+        }
+      }
+
+    </script>
+  </body>
+</html>

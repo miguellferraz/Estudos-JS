@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex003</title>
+  </head>
+  <body>
+    <script>
+      function criarPessoa(nome, idade) {
+        const pessoa = {
+          nome: nome,
+          idade: idade,
+          apresentar: function () {
+            return `Olá, meu nome é ${this.nome} e tenho ${this.idade} anos.`;
+          },
+        };
+
+        return pessoa;
+      }
+
+      const pessoa1 = criarPessoa("João", 25);
+      const pessoa2 = criarPessoa("Ana", 30);
+
+      console.log(pessoa1.apresentar());
+      console.log(pessoa2.apresentar()); 
+    </script>
+  </body>
+</html>

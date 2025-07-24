@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5 | Exercises</title>
+</head>
+<body>
+    <p>Restaurant</p>
+    <button onclick="
+        console.log(`Your order is $${amount}`)">Show Order
+    </button>
+    <button onclick="
+        amount += coffee; 
+        console.log(`You ordered a Coffee $${coffee}`)">Coffee $5
+    </button>
+    <button onclick="
+        amount += bagels;
+        console.log(`You ordered a Bagels $${bagels}`)">Bagels $3
+    </button>
+    <button onclick="
+        amount += soup;
+        console.log(`You ordered a Soup $${soup}`)">Soup $9
+    </button>
+    <button onclick="
+        amount = 0;
+        console.log(`You have cancelled your order`)">Cancel Order
+    </button>
+    <button onclick="
+        const totalCost = amount + amount * 0.1;
+        console.log(`Your order with tax is $${totalCost}`)">Close Order
+    </button>
+    <script>
+        // 5a
+        const name = 'Miguel Ferraz';
+        console.log(name);
+
+        // 5b
+        console.log(`My name is ${name}`)
+
+        // 5c to 5d
+        let amount = 0;
+        let coffee = 5;
+        let bagels = 3;
+        let soup = 9;
+    </script>
+</body>
+</html>
