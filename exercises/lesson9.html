@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 9 | Exercises</title>
+  </head>
+  <body>
+    <button class="changeButton" onclick="changeName()">Olá</button>
+    <p></p>
+
+    <button class="headsButton" onclick="choices('heads')">heads</button>
+    <button class="tailsButton" onclick="choices('tails')">tails</button>
+    <p class="choice"></p>
+
+    <input type="text" placeholder="Name" class="inputName" />
+    <button class="submitButton" onclick="showName()">Submit</button>
+    <p class="nameParagraph"></p>
+
+    <script>
+      function changeName() {
+        const newButton = document.querySelector(".changeButton");
+
+        if (newButton.innerText === "Olá") {
+          newButton.innerText = "Tudo bem?";
+        } else {
+          newButton.innerText = "Olá";
+        }
+      }
+
+      function choices(option) {
+        const choiceResult = document.querySelector(".choice");
+
+        if (option === "heads") {
+          choiceResult.innerText = "You choose Heads!";
+        } else if (option === "tails") {
+          choiceResult.innerText = "You choose Tails!";
+        }
+      }
+
+      function showName() {
+        const name = document.querySelector(".inputName");
+        const showParagraph = document.querySelector(".nameParagraph");
+
+        showParagraph.innerText = `Your name is: ${name.value}`;
+      }
+
+      const inputName = document.querySelector(".inputName");
+      inputName.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          showName();
+        }
+      });
+    </script>
+  </body>
+</html>
