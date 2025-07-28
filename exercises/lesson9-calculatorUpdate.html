@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="display">
+          <p class="showDisplay"></p>
+          <p class="showResult"></p>
+      </div>
+      <p>
+        <button onclick="updateCalculation('1')">1</button>
+        <button onclick="updateCalculation('2')">2</button>
+        <button onclick="updateCalculation('3')">3</button>
+        <button onclick="updateCalculation(' + ')">+</button>
+      </p>
+      <p>
+        <button onclick="updateCalculation('4')">4</button>
+        <button onclick="updateCalculation('5')">5</button>
+        <button onclick="updateCalculation('6')">6</button>
+        <button onclick="updateCalculation(' - ')">-</button>
+      </p>
+      <p>
+        <button onclick="updateCalculation('7')">7</button>
+        <button onclick="updateCalculation('8')">8</button>
+        <button onclick="updateCalculation('9')">9</button>
+        <button onclick="updateCalculation(' * ')">*</button>
+      </p>
+      <p>
+        <button onclick="updateCalculation('0')">0</button>
+        <button onclick="updateCalculation('.')">.</button>
+        <button onclick="equals()">=</button>
+        <button onclick="updateCalculation(' / ')">/</button>
+      </p>
+      <p>
+        <button class="clearButton" onclick="clearDisplay()">Clear</button>
+      </p>
+    </div>
+
+    <script>
+      let calculation = "";
+      const display = document.querySelector(".showDisplay");
+      const result = document.querySelector(".showResult");
+
+      function updateCalculation(value) {
+        calculation += value;
+        display.innerText = calculation;
+      }
+
+      function equals() {
+        calculation = eval(calculation);
+        result.innerText = calculation;
+      }
+
+      function clearDisplay() {
+        calculation = "";
+        display.innerText = "";
+        result.innerText = "";
+      }
+    </script>
+  </body>
+</html>

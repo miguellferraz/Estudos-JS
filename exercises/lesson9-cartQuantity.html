@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Quantity</title>
+  </head>
+
+  <body>
+    <p>Cart Quantity</p>
+
+    <button onclick="showQuantityButton()">Show Quantity</button>
+
+    <button onclick="updateCartQuantity(1)">Add to Cart</button>
+    <button onclick="updateCartQuantity(2)">+2</button>
+    <button onclick="updateCartQuantity(3)">+3</button>
+    <button onclick="updateCartQuantity(4)">+4</button>
+    <button onclick="updateCartQuantity(5)">+5</button>
+
+    <button onclick="updateCartQuantity(-1)">Remove from Cart</button>
+    <button onclick="updateCartQuantity(-2)">-2</button>
+    <button onclick="updateCartQuantity(-3)">-3</button>
+
+    <button onclick="resetCart()">Reset Cart</button>
+
+    <p class="showQuantity"></p>
+
+    <script>
+      let cartQuantity = Number(localStorage.getItem("quantity")) || 0;
+      const paragraph = document.querySelector(".showQuantity");
+
+      function showQuantityButton() {
+        paragraph.innerText = `Cart Quantity: ${cartQuantity}`;
+      }
+
+      function updateCartQuantity(value) {
+        if (cartQuantity + value < 0) {
+          alert("Not enough items in the cart");
+          return;
+        }
+
+        if (cartQuantity + value > 10) {
+          alert("The cart is full! The maximum is 10 items");
+          return;
+        }
+
+        cartQuantity += value;
+        localStorage.setItem("quantity", cartQuantity);
+
+        if (value > 0) {
+          paragraph.innerText = `You added ${value} item(s) to the cart.`;
+        } else {
+          paragraph.innerText = `You removed ${Math.abs(value)} item(s) from the cart.`;
+        }
+
+        paragraph.innerText = `Cart Quantity: ${cartQuantity}`;
+      }
+
+      function resetCart() {
+        cartQuantity = 0;
+        localStorage.removeItem("quantity");
+        paragraph.innerText = `Cart Quantity: ${cartQuantity}`;
+      }
+    </script>
+  </body>
+</html>
